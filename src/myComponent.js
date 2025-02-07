@@ -1,10 +1,16 @@
 import React from "react";
-
+import ChildComponent from "./ChildComponent";
 class MyComponent extends React.Component {
 
     state = {
         firstName: '',
-        lastName: ''
+        lastName: '',
+        arrJobs: [
+            { id: 'job1', title: 'Deverlopers', salary: '500' },
+            { id: 'job2', title: 'Testers', salary: '400' },
+            { id: 'job3', title: 'Programer', salary: '1000' },
+
+        ]
     }
 
 
@@ -18,7 +24,6 @@ class MyComponent extends React.Component {
             lastName: event.target.value
         })
     }
-
 
     clickMe = (event) => {
 
@@ -48,6 +53,13 @@ class MyComponent extends React.Component {
                     <input type="button" value="Submit" onClick={(event) => { this.clickMe(event) }} />
 
                 </div>
+
+                <ChildComponent
+                    name={this.state.firstName}
+                    age={'26'}
+                    address={'ho chi minh'}
+                    arrJobs={this.state.arrJobs}
+                />
             </>
         )
     }
