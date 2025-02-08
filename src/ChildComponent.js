@@ -1,5 +1,5 @@
 import React from "react";
-import MyComponent from "./myComponent";
+
 
 class ChildComponent extends React.Component {
 
@@ -19,8 +19,9 @@ class ChildComponent extends React.Component {
         let { showJob } = this.state
         return (
             <>
-                {!showJob && <div><button onClick={() => this.handleShowHide()}>Show</button></div>}
-                {showJob &&
+                {showJob ? 
+                <div><button onClick={() => this.handleShowHide()}>Show</button></div>
+                :
                     <>
                         <div className="job-lists">
                             {
